@@ -1,6 +1,22 @@
 const { DateTime } = require("luxon");
-var slugify = require('slugify');
+const slugify = require('slugify');
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+
+function mySlug(string) {
+  const options = {
+    replacement: "-",
+    remove: /[&,+()$~%.'":*?<>{}]/g,
+    lower: true
+  };
+  return slugify("" + string, options);
+}
+
+function formatDate(date) {
+    var year = date.getFullYear().toString();
+    var month = (date.getMonth() + 101).toString().substring(1);
+    var day = (date.getDate() + 100).toString().substring(1);
+    return year + "/" + month + "/" + day;
+}
 
 module.exports = function(eleventyConfig) {
     eleventyConfig.addPlugin(pluginRss);
@@ -27,18 +43,3 @@ module.exports = function(eleventyConfig) {
     }
 }
 
-function mySlug(string) {
-  const options = {
-    replacement: "-",
-    remove: /[&,+()$~%.'":*?<>{}]/g,
-    lower: true
-  };
-  return slugify("" + string, options);
-}
-
-function formatDate(date) {
-    var year = date.getFullYear().toString();
-    var month = (date.getMonth() + 101).toString().substring(1);
-    var day = (date.getDate() + 100).toString().substring(1);
-    return year + "/" + month + "/" + day;
-}
