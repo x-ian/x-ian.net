@@ -1,0 +1,28 @@
+---
+layout: posts.njk
+pagination:
+  data: collections
+  size: 1
+  filter: 
+    - post
+    - all
+  alias: tag
+permalink: /category/{{ tag }}/
+eleventyExcludeFromCollections: true
+---
+
+{% set taglist = collections[ tag ] %}
+{% for post in taglist | reverse %}
+	<div class="post" >
+		<h2>{{ post.data.title }}</h2>
+		<div class="info">
+			<span class="date">{{ post.date }}</span>
+			<div class="fixed"></div>
+		</div>
+		<div class="content"> 
+			{{ post.templateContent | safe }}
+			<div class="fixed"></div>
+		</div>
+	</div>
+
+{% endfor %}

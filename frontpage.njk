@@ -1,0 +1,27 @@
+---
+layout: posts.njk
+pagination:
+  data: collections.post
+  size: 10
+  alias: blogs
+  reverse: true
+permalink: "/{% if pagination.pageNumber >0 %}/page/{{ pagination.pageNumber + 1 }}/{% endif %}"
+
+eleventyExcludeFromCollections: true
+---
+
+  {% for post in pagination.items %}
+	<div class="post">
+	
+		<h2><a class="title" href="{% postUrl post %}" rel="bookmark">{{ post.data.title }}</a></h2>
+		<div class="info">
+			<span class="date">{{ post.date }}</span>
+			<div class="fixed"></div>
+		</div>
+		<div class="content"> 
+			{{ post.templateContent | safe }}
+			<div class="fixed"></div>
+		</div>
+	</div>
+
+  {% endfor %}

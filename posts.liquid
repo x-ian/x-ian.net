@@ -1,0 +1,23 @@
+---
+layout: posts.njk
+pagination:
+  data: collections.post
+  size: 1
+  alias: blogs
+permalink: "/{{ pagination.items[0].data.date | date: '%Y/%m/%d' }}/{{ pagination.items[0].data.title | slugify }}/"
+---
+  {% for post in pagination.items %}
+	<div class="post" id="post-244">
+		<h2>{{ post.data.title }}</h2>
+		<div class="info">
+			<span class="date">{{ post.date }}</span>
+			<div class="fixed"></div>
+		</div>
+		<div class="content">
+			{{ post.templateContent | safe }}
+			<div class="fixed"></div>
+		</div>
+		<div class="under">
+			<span class="categories">Categories: </span><span><a href="/category/{{ pagination.items[0].data.tags[0] }}/" title="View all posts in {{ pagination.items[0].data.tags[0] }}" rel="category tag">{{ pagination.items[0].data.tags[0] }}</a></span>					</div>
+	</div>
+  {% endfor %}

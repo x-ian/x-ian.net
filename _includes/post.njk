@@ -1,0 +1,98 @@
+{% include 'post_head.njk' %}
+
+<body>
+<!-- wrap START -->
+<div id="wrap">
+
+<!-- container START -->
+<div id="container"  >
+
+<!-- header START -->
+<div id="header">
+
+	<!-- banner START -->
+		<!-- banner END -->
+
+	<div id="caption"> 
+		<h1 id="title"><a href="/">Simple thoughts</a></h1>
+		<div id="tagline">#{programming} || #{mountains}</div>
+	</div>
+
+	<div class="fixed"></div>
+</div>
+<!-- header END -->
+
+
+<!-- content START -->
+<div id="content">
+
+	<!-- main START -->
+	<div id="main">
+
+
+<!--
+	<div id="postpath">
+		<a title="Go to homepage" href="/">Home</a>
+		 &gt; <a href="/category/misc/" title="View all posts in Misc" rel="category tag">Misc</a>		 &gt; Amerikanisches MacBook mit deutschen Umlauten	</div>
+-->
+
+	<div class="post">
+		
+		
+		<h2>{{ title }}</h2>
+		<div class="info">
+			<span class="date">{{ page.date.toLocaleDateString("en-US") }}</span>
+			<div class="fixed"></div>
+		</div>
+		<div class="content">
+			{{ content | safe }}
+						<div class="fixed"></div>
+		</div>
+
+<!--
+		<div class="under">
+			<span class="categories">Categories: </span><span><a href="/category/misc/" title="View all posts in Misc" rel="category tag">Misc</a></span>			
+		</div>
+-->
+	</div>
+	
+
+	<!-- related posts START -->
+		<!-- related posts END -->
+
+	<script type="text/javascript" src="/js/comment.js"></script>
+
+
+
+
+	<div class="messagebox">
+		Comments are closed.	</div>
+
+<!--
+	<div id="postnavi">
+		<span class="prev"><a href="http://x-ian.net/2009/10/13/ssh-tunnel-quickie/" rel="next">SSH tunnel Quickie</a></span>
+		<span class="next"><a href="http://x-ian.net/2009/09/10/stop-a-long-running-shellbash-process-after-a-timeout/" rel="prev">Stop a long running shell/bash process after timeout</a></span>
+		<div class="fixed"></div>
+	</div>
+-->
+
+	</div>
+	<!-- main END -->
+
+
+{% include 'post_sidebar.njk' %}
+	
+	<div class="fixed"></div>
+</div>
+<!-- content END -->
+
+{% include 'post_footer.njk' %}
+</div>
+<!-- container END -->
+</div>
+<!-- wrap END -->
+
+
+</body>
+</html>
+
